@@ -202,7 +202,7 @@ function SubmissionForm() {
               name="file"
               accept=".pdf, .doc, .docx, .xls, .xlsx, .txt, .jpg, .png, .gif, .ppt, .pptx, .zip, .rar, .tex, video/*"
             />
-            {formData.file && (
+            {!uploadPerc && formData.file && (
               <button
                 type="button"
                 onClick={handleFileReset}
