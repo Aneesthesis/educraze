@@ -1,11 +1,11 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import NotFound from "./components/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PreviewSubmissions from "./components/PreviewSubmissions";
-import SubmissionForm from "./components/SubmissionForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SubmissionForm from "./pages/SubmissionForm";
+import NotFound from "./pages/NotFound";
+import PreviewSubmissions from "./pages/PreviewSubmissions";
 
 function App() {
   return (

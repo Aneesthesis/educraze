@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import usePagination from "../utils/usePgination";
 
-const ContentCard = lazy(() => import("./ContentCard"));
+const ContentCard = lazy(() => import("../components/ContentCard"));
 
 function PreviewSubmissions() {
   const [contentList, setContentList] = useState([]);

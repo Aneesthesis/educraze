@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useRef, useState } from "react";
 import axios from "axios";
 import { getError } from "../utils/getError";
 import { toast } from "react-toastify";
@@ -22,6 +22,16 @@ function SubmissionForm() {
     file: null,
     fileLink: "",
   });
+
+  const inputFileRef = useRef(null);
+
+  // Function to reset the input element
+  const handleFileReset = () => {
+    setFormData({ ...formData, file: null });
+    if (inputFileRef.current) {
+      inputFileRef.current.value = "";
+    }
+  };
 
   const [state, dispatch] = useReducer(reducer, {
     uploading: false,
@@ -69,11 +79,6 @@ function SubmissionForm() {
     uploadFile(file, setUploadPerc, formData, setFormData);
   };
 
-  const removeFile = () => {
-    console.log(formData);
-    setFormData({ ...formData, file: null });
-  };
-
   const handleSubmission = async (e) => {
     e.preventDefault();
 
@@ -83,7 +88,6 @@ function SubmissionForm() {
       try {
         dispatch({ type: "UPLOADING", payload: true });
 
-        console.log(formData + "WAs logged");
         const { data, status } = await axios.post(
           "https://educraze-api.onrender.com/api/content",
           formData
@@ -98,6 +102,7 @@ function SubmissionForm() {
             file: null,
             fileLink: "",
           }));
+          handleFileReset();
 
           console.log(formData, uploadPerc);
           dispatch({ type: "SUCCESS", payload: data.message });
@@ -193,13 +198,14 @@ function SubmissionForm() {
               }`}
               id="file"
               type="file"
+              ref={inputFileRef}
               name="file"
               accept=".pdf, .doc, .docx, .xls, .xlsx, .txt, .jpg, .png, .gif, .ppt, .pptx, .zip, .rar, .tex, video/*"
             />
             {formData.file && (
               <button
                 type="button"
-                onClick={removeFile}
+                onClick={handleFileReset}
                 className="ml-2 text-base text-red-500 font-bold"
               >
                 ✖️
