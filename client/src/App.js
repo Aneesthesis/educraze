@@ -3,9 +3,9 @@ import Header from "./components/Header";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SubmissionForm from "./pages/SubmissionForm";
-import NotFound from "./pages/NotFound";
-import PreviewSubmissions from "./pages/PreviewSubmissions";
+import SubmissionFormPage from "./pages/SubmissionFormPage";
+import PreviewSubmissionsPage from "./pages/PreviewSubmissionsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -17,9 +17,12 @@ function App() {
           limit={1}
         />
         <Routes>
-          <Route path="/" element={<SubmissionForm />}></Route>
-          <Route path="/submissions" element={<PreviewSubmissions />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
+          <Route path="/" element={<SubmissionFormPage />}></Route>
+          <Route
+            path="/submissions"
+            element={<PreviewSubmissionsPage />}
+          ></Route>
+          <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
       </BrowserRouter>
       <Footer />

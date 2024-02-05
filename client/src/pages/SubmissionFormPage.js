@@ -15,7 +15,7 @@ const reducer = (state, action) => {
   }
 };
 
-function SubmissionForm() {
+function SubmissionFormPage() {
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -252,4 +252,4 @@ function SubmissionForm() {
   );
 }
 
-export default SubmissionForm;
+export default SubmissionFormPage;

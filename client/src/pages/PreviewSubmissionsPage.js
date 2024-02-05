@@ -6,7 +6,7 @@ import { getError } from "../utils/getError";
 
 const ContentCard = lazy(() => import("../components/ContentCard"));
 
-function PreviewSubmissions() {
+function PreviewSubmissionsPage() {
   const [contentList, setContentList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -109,4 +109,4 @@ function PreviewSubmissions() {
     : renderContentList();
 }
 
-export default PreviewSubmissions;
+export default PreviewSubmissionsPage;
