@@ -1,6 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import usePagination from "../utils/usePgination";
+import { toast } from "react-toastify";
+import { getError } from "../utils/getError";
 
 const ContentCard = lazy(() => import("../components/ContentCard"));
 
@@ -19,7 +21,6 @@ function PreviewSubmissions() {
           "https://educraze-api.onrender.com/api/content"
         );
         setContentList(response.data.data);
-        console.log(response.data.data);
       } catch (error) {
         setError(error);
       } finally {
@@ -38,8 +39,10 @@ function PreviewSubmissions() {
       setContentList((prevContentList) =>
         prevContentList.filter((content) => content._id !== contentId)
       );
+      toast.success("Deleted Successfully");
     } catch (error) {
       console.error("Error deleting content:", error.message);
+      toast.error(getError(error));
     }
   };
 
