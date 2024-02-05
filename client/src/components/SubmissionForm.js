@@ -85,7 +85,7 @@ function SubmissionForm() {
 
         console.log(formData + "WAs logged");
         const { data, status } = await axios.post(
-          "http://localhost:8000/api/content",
+          "https://educraze-api.onrender.com/api/content",
           formData
         );
         if (status === 201) {
