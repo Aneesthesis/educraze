@@ -123,7 +123,7 @@ function SubmissionForm() {
     >
       <form
         onSubmit={handleSubmission}
-        className="shadow-md rounded-md mx-4 px-4 sm:px-8 pt-6 pb-8 mb-4 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 text-black bg-gradient-to-t from-blue-100 to-green-300 opacity-95"
+        className="shadow-md rounded-md mx-4 px-4 sm:px-8 pt-6 pb-8 mt-10 md:mt-4 mb-4 w-full sm:w-2/3 md:w-1/2 lg:w-1/3 text-black bg-gradient-to-t from-blue-100 to-green-300 opacity-95"
       >
         <h1 className="text-2xl font-bold mb-6 text-white">
           Content Submission

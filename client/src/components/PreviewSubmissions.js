@@ -16,7 +16,7 @@ function PreviewSubmissions() {
       try {
         setLoading(true);
         const response = await axios.get(
-          "https://educraze-api.onrender.com/api/contentt"
+          "https://educraze-api.onrender.com/api/content"
         );
         setContentList(response.data.data);
         console.log(response.data.data);
